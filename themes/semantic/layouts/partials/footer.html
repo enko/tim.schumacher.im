@@ -1,0 +1,15 @@
+<div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+        <img src="/logo.png" class="ui centered mini image">
+        <div class="ui horizontal inverted small divided link list">
+            {{ range .Site.Menus.footer }}
+            <a class="item" href="{{ .URL }}">
+                    <i class="{{ .Identifier }}">&nbsp;</i>{{ .Name }}
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

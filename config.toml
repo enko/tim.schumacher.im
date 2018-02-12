@@ -1,0 +1,22 @@
+baseURL = "https://tim.schumacher.im"
+title = "datenknoten.me"
+theme = "semantic"
+paginate = 6
+languageCode = "en"
+defaultContentLanguage = "en"
+enableEmoji = true
+
+[author]
+  name = "Tim Schumacher"
+
+[[menu.main]]
+  name = "Über mich"
+  weight = 20
+  identifier = "ueber-mich"
+  url = "/ueber-mich/"
+
+[[menu.footer]]
+  name = "Über mich"
+  weight = 20
+  identifier = "ueber-mich"
+  url = "/ueber-mich/"

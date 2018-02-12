@@ -1,0 +1,21 @@
+{{ partial "header" . }}
+{{ partial "navbar" . }}
+<!-- Main -->
+
+<div class="ui text container">
+        {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+        {{ range .Paginator.Pages }}
+        {{ partial "summary-posting" . }}
+        {{ end }}
+
+        {{ partial "pagination" . }}
+    </div>
+<!--
+    <div class="ui text container">
+    {{ range first 100 (where .Site.Pages "Type" "post") }}
+    {{ partial "summary-posting" . }}
+    {{ end }}
+</div>
+-->
+
+{{ partial "footer" . }}
