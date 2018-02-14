@@ -27,6 +27,11 @@
             {{ end }}
         {{ end }}
 
+        {{ if .RSSLink }}
+            <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+            <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+        {{ end }}
+
         {{ template "_internal/twitter_cards.html" . }}
         {{ template "_internal/opengraph.html" . }}
         {{ template "_internal/schema.html" . }}
@@ -43,7 +48,7 @@
         <script>
             $(document)
                 .ready(function() {
-            
+
                 // fix main menu to page on passing
                 $('.main.menu').visibility({
                     type: 'fixed'
@@ -52,14 +57,14 @@
                     type: 'fixed',
                     offset: 80
                 });
-            
+
                 // lazy load images
                 $('.image').visibility({
                     type: 'image',
                     transition: 'vertical flip in',
                     duration: 500
                 });
-            
+
                 // show dropdown on hover
                 $('.main.menu  .ui.dropdown').dropdown({
                     on: 'hover'
@@ -69,14 +74,14 @@
         </script>
 
         <style type="text/css">
-    
+
             body {
                 background-color: #FFFFFF;
             }
             .main.container {
                 margin-top: 2em;
             }
-            
+
             .main.menu {
                 margin-top: 4em;
                 border-radius: 0;
@@ -90,7 +95,7 @@
             .main.menu .item img.logo {
                 margin-right: 1.5em;
             }
-            
+
             .overlay {
                 float: left;
                 margin: 0em 3em 1em 0em;
@@ -100,7 +105,7 @@
                 left: 0;
                 transition: left 0.5s ease;
             }
-            
+
             .main.menu.fixed {
                 background-color: #FFFFFF;
                 border: 1px solid #DDD;
@@ -109,14 +114,14 @@
             .overlay.fixed .menu {
                 left: 800px;
             }
-            
+
             .text.container .left.floated.image {
                 margin: 2em 2em 2em -4em;
             }
             .text.container .right.floated.image {
                 margin: 2em -4em 2em 2em;
             }
-            
+
             .ui.footer.segment {
                 margin: 5em 0em 0em;
                 padding: 5em 0em;
