@@ -1,7 +1,7 @@
 <div class="ui borderless main menu">
     <div class="ui text container">
         <a href="/" class="header item">
-            <img class="logo" src="/logo.png"> datenknoten
+            <img class="logo" src="/logo.png"> {{ .Site.Title }}
         </a>
         {{ range .Site.Menus.main }}
         <a class="item" href="{{ .URL }}">

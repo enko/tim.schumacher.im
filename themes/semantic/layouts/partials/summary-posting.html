@@ -1,15 +1,20 @@
 <article class="ui fluid card">
     <div class="content">
+        <h2 class="header">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+    </div>
+    <div class="content">
         {{ $length := len .Content }}
-        <h2 class="header"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        {{ if lt $length 500 }}
         <div class="description">{{ .Content }}</div>
-        {{ else }}
-        <div class="description">{{ .Summary }}</div>
-        {{ end }}
     </div>
     <div class="extra content">
-        <div class="ui tiny labeled icon button"><i class="calendar icon"></i> {{ dateFormat "2006-01-02" .Date }}</div>
-        {{ range .Params.tags }}<a class="ui tiny labeled icon button" href="/blog/tag:musik"><i class="icon tag"></i>{{ . }}</a>{{ end }}
+        <div class="ui tiny labeled icon button">
+            <i class="calendar icon"></i> {{ dateFormat "2006-01-02" .Date }}</div>
+        {{ range .Params.tags }}
+        <a class="ui tiny labeled icon button" href="{{ "tags" | absURL }}/{{ . | urlize }}">
+            <i class="icon tag"></i>{{ . }}
+        </a>
+        {{ end }}
     </div>
 </article>

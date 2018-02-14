@@ -1,10 +1,12 @@
 baseURL = "https://tim.schumacher.im"
-title = "datenknoten.me"
+title = "Tim Schumacher"
 theme = "semantic"
-paginate = 6
+paginate = 4
 languageCode = "en"
 defaultContentLanguage = "en"
-enableEmoji = true
+enableEmoji = false
+pygmentsCodeFences = true
+pygmentsOptions = "linenos=table"
 
 [author]
   name = "Tim Schumacher"
