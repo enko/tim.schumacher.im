@@ -3,20 +3,21 @@ title: Netzwerksetup über IPv6 Link Local und ansible
 date: 2015-11-10
 tags: [rezept,ipv6,link local,ansible]
 categories: [technik]
-type: post    
+type: post
 ---
 
 Folgende Problemstellung sei gegeben:
 
 Man hat ein Image für eine Debian-Instalation, das man auf einem Rechner (Dabei ist es egal, ob echt oder virtuell) aufgespielt hat, kein Netzwerk definiert, man kennt aber die [MAC-Adresse](https://de.wikipedia.org/wiki/MAC-Adresse) des Netzwerk-Interfaces und will jetzt das Netzwerk konfigurieren.
- 
+
 Die Lösung ist relativ einfach, da man über die MAC-Adresse die [IPv6-Link-Local-Adresse](https://de.wikipedia.org/wiki/IPv6#Link-Local-Adressen) berechnen kann, mit der man sich dann zum sshd des Rechners verbinden kann.
- 
+
 Ich zeige nun wie ich das Ganze über [Ansible](http://www.ansible.com/) gelöst habe.
 
 Meine Ordnerstruktur für mein Ansible-Setup sieht so aus:
 
-```
+
+```shell
 . ansible.cfg
 . hosts
 / host_vars
@@ -36,7 +37,7 @@ Nun werde ich erklären, was die einzelnen Dateien tun.
 
 Die Datei `hosts` sieht für dieses Beispiel so aus:
 
-```
+```ini
 [linux_guests]
 xmpp.int.datenknoten.me
 ```
@@ -52,8 +53,8 @@ mac: 52:54:00:b8:e9:a1
 Das Feld `id` enthält eine Zahl, die für die Berechnung der IPv4 NAT Adresse und der globalen IPv6 Adresse benutzt wird. Das Feld `mac` ist die MAC-Adresse des Rechners. Diese Adresse wird für die Berechnung der IPv6-Link-Local-Adresse benötigt.
 
 Die Datei `conv_mac2ll.py` enthält ein Python-Skript, welches die eigentliche Berechnung vornimmt:
- 
-```
+
+```python
 #!/usr/local/bin/python
 
 def mac2ll(mac):
@@ -74,7 +75,7 @@ class FilterModule(object):
 
 Mein eigentliches Playbook für den Netzwerkkram ist dadurch sehr übersichtlich:
 
-```
+```yaml
 ---
 - hosts: linux_guests
   vars:
@@ -94,22 +95,22 @@ Mein eigentliches Playbook für den Netzwerkkram ist dadurch sehr übersichtlich
 Da ich die Playbooks auf einer FreeBSD Kiste ausführe, heißt das Netzwerk-Interface hier `vtnet0`. Unter Linux heißt dieses aller Wahrscheinlichkeit nach `eth0`.
 
 In der `sysctl.conf` deaktiviere ich das Router Advertisement Protocol, da ich alles hart verdrahte:
- 
-```
+
+```shell
 net.ipv6.conf.all.accept_ra=0
 net.ipv6.conf.all.autoconf=0
 ```
 
 Die Namensserver-Konfiguration ist jetzt auch nicht weltbewegend:
 
-```
+```shell
 nameserver 192.168.122.9
 search int.datenknoten.me
 ```
 
 Und zum Schluss das Wichtigste, die Netzwerkkonfiguration:
- 
-```
+
+```shell
 auto lo
 iface lo inet loopback
 

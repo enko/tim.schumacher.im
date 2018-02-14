@@ -54,7 +54,7 @@ angebunden werden. Soviel zur Infrastruktur, jetzt zur Konfiguration.
 
 Meine Server Konfiguration sieht so aus:
 
-```
+```config
 # Crypto konfigurieren
 ca /etc/ipsec.d/cacerts/cacert.pem
 cert /etc/ipsec.d/certs/node2.datenknoten.me.pem
@@ -87,7 +87,7 @@ plugin /usr/lib/openvpn/openvpn-auth-ldap.so /etc/openvpn/auth-ldap.conf
 
 Die LDAP konfiguration sieht so aus:
 
-```
+```xml
 <LDAP>
         URL             ldaps://ldap.datenknoten.me
         BindDN          cn=systemuser,ou=users,dc=datenknoten,dc=me
@@ -119,7 +119,7 @@ werden. Ich benutze das Programm
 „[Ferm](http://ferm.foo-projects.org/)” um meine [IPTables](http://www.netfilter.org/projects/iptables/)-Regeln zu
 verwalten. Entsprechend sieht mein Script so aus:
 
-```
+```shell
 # -*- shell-script -*-
 #
 #  Configuration file for ferm(1).
@@ -206,7 +206,7 @@ Konfigurations-Dateien steht hat sich über die Jahre so entwickelt.
 
 Unter Linux ist bis auf einen Punkt eigentlich alles sehr entspannt. Das Problem ist, das der DNS-Server den ich bereitstelle nicht übernommen wird. Dafür gibt es eine Lösung und jetzt erstmal die Config:
 
-```
+```shell
 client
 dev tun
 proto tcp
@@ -238,7 +238,7 @@ nämlich mittels einem kleinen Skript das
 aufruft, den mitgelieferte DNS-Server in der Datei `/etc/resolv.conf`
 einträgt. Hier das Skript:
 
-```
+```shell
 #!/bin/bash
 #
 # Parses DHCP options from openvpn to update resolv.conf
