@@ -44,7 +44,7 @@ xmpp.int.datenknoten.me
 
 In dem Ordner `host_vars` gibt es für jeden Host eine Datei. Für den Rechner xmpp.int.datenknoten.me sieht die Datei so aus:
 
-```
+```yaml
 ---
 id: 4
 mac: 52:54:00:b8:e9:a1
