@@ -1,6 +1,22 @@
 <!doctype html>
 <html lang="de-DE">
     <head>
+        {{ $.Scratch.Set "generalTitle" .Title }}
+        {{ if eq ($.Scratch.Get "generalTitle") "Blogs" }}
+            {{ $.Scratch.Set "generalTitle" "Blog" }}
+        {{ end }}
+        {{ if and (.IsNode) (eq .Data.Plural "categories") }}
+            {{ if ne .Data.Plural (lower .Title) }}
+                {{ $.Scratch.Add "generalTitle" " Posts" }}
+            {{ end }}
+        {{ end }}
+
+        <meta name="foo" value="{{ ($.Scratch.Get "generalTitle") }}">
+        {{ if ne .Site.Title ($.Scratch.Get "generalTitle") }}
+            {{ $.Scratch.Add "generalTitle" " — " }}
+            {{ $.Scratch.Add "generalTitle" .Site.Title }}
+        {{ end }}
+
         {{ with $.Scratch.Get "generalTitle" }}<title>{{ . }}</title>{{ end }}
 
         <meta charset="utf-8" />
