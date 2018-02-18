@@ -1,16 +1,10 @@
-{{ partial "general-title" . }}
-{{ partial "header" . }}
-{{ partial "navbar" . }}
-
-<p>oh hai</p>
-
+{{ define "main" -}}
 <main class="ui text container">
         {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
         {{ range .Paginator.Pages }}
-        {{ partial "summary-posting" . }}
+                {{ partial "full-posting" . }}
         {{ end }}
 
         {{ partial "pagination" . }}
 </main>
-
-{{ partial "footer" . }}
+{{- end }}

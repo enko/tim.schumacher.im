@@ -1,8 +1,6 @@
+{{ define "main" -}}
 {{ partial "general-title" . }}
-{{ partial "header" . }}
-{{ partial "navbar" . }}
-<!-- Main -->
 <main class="ui text container">
-    {{ partial "full-posting" . }}
+    {{- partial "full-posting" . -}}
 </main>
-{{ partial "footer" . }}
+{{- end }}
