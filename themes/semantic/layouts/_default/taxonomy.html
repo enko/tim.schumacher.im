@@ -3,12 +3,10 @@
 {{ partial "header" . }}
 {{ partial "navbar" . }}
 
-<p>oh hai</p>
-
 <main class="ui text container">
     {{ $paginator := .Paginate .Data.Pages }}
     {{ range .Paginator.Pages }}
-        {{ .Render "content-list" }}
+        {{ partial "full-posting" . }}
     {{ end }}
 
     {{ partial "pagination" . }}
