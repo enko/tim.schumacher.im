@@ -3,7 +3,9 @@ title: "Über mich"
 date: 2017-09-24
 ---
 
-Ich bin ein alter Sack aus [Jena (Thüringen)](http://www.openstreetmap.org/node/240090160), der gerne wandern geht, hier und da auch gerne mal etwas [programmiert](https://github.com/enko), [abstruse Musik](https://www.youtube.com/user/0xAFFE/videos?shelf_id=0&sort=dd&view=15) höhrt und auch sonst viel Spass am Leben hat.
+Ich bin ein alter Sack aus dem Rheinland, den es für das Studium nach [Jena (Thüringen)](http://www.openstreetmap.org/node/240090160) verschlagen hat und wegen der Liebe gelieben ist. Ich gehe gerne wandern, hier und da [programmiere](https://github.com/enko) ich auch gerne mal etwas, höhre [abstruse Musik](https://www.youtube.com/user/0xAFFE/videos?shelf_id=0&sort=dd&view=15) und auch sonst habe ich viel Spass am Leben.
+
+Wenn du einen Rechtschreibfehler findest, kannst du gerne einen [Pull-Request](https://github.com/enko/tim.schumacher.im) stellen.
 
 ## Kontakt
 
