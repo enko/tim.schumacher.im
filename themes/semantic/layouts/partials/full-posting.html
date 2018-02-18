@@ -13,7 +13,7 @@
             <div class="ui tiny labeled icon button">
                 <i class="calendar icon"></i> {{ dateFormat "2006-01-02" .Date }}</div>
             {{ range .Params.tags }}
-            <a class="ui tiny labeled icon button" href="/blog/tag:musik">
+            <a class="ui tiny labeled icon button" href="{{ "tags" | absURL }}/{{ . | urlize }}">
                 <i class="icon tag"></i>{{ . }}</a>
             {{ end }}
         </div>
