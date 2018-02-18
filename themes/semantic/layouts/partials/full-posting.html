@@ -9,11 +9,13 @@
         <div class="description">{{ .Content }}</div>
     </div>
     <div class="extra content">
-        <div class="ui tiny labeled icon button">
-            <i class="calendar icon"></i> {{ dateFormat "2006-01-02" .Date }}</div>
-        {{ range .Params.tags }}
-        <a class="ui tiny labeled icon button" href="/blog/tag:musik">
-            <i class="icon tag"></i>{{ . }}</a>
-        {{ end }}
+        <div class="tags">
+            <div class="ui tiny labeled icon button">
+                <i class="calendar icon"></i> {{ dateFormat "2006-01-02" .Date }}</div>
+            {{ range .Params.tags }}
+            <a class="ui tiny labeled icon button" href="/blog/tag:musik">
+                <i class="icon tag"></i>{{ . }}</a>
+            {{ end }}
+        </div>
     </div>
 </article>
