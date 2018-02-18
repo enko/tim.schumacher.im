@@ -23,7 +23,7 @@ Das [Skript](/media/blog/postfix-zabbix-ueberwachen/postfix-zabbix-stats.bash) m
 
 Danach legt man einen Cronjob für das Skript an, damit es die Statistik-Datei schreiben kann:
 
-```
+```cron
 */5 * * * * /usr/local/bin/postfix-zabbix-stats.bash
 ```
 
