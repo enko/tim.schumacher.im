@@ -26,3 +26,31 @@ body {
 article .description {
     text-align: justify;
 }
+
+article .description .highlight {
+    border-left: 0.5rem solid rgb(65, 131, 196);
+    background-color: #272822;
+    font-size: 0.8rem;
+}
+
+article .description .highlight pre code {
+    font-family: Hack, monospace;
+}
+
+article .description .highlight pre {
+    margin: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+article .description .highlight td:first-child {
+    outline: 1px solid rgb(65, 131, 196) !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+
+    text-align: left;
+}
+
+article .description .highlight td:last-child {
+    padding-left: 1rem !important;
+}
