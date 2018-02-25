@@ -49,12 +49,14 @@
         <link
             rel="stylesheet"
             type="text/css"
+            media="screen"
             href="/semantic-ui/semantic.min.css"
             crossorigin="anonymous"
             integrity="sha384-370KB8zqOlHxys9dcOyC7aCeXVtGyiKkWkp+cn8Mfoi13/sPj7fvSuhKRRdFbcip">
         <link
             rel="stylesheet"
             type="text/css"
+            media="screen"
             href="/styles.css"
             crossorigin="anonymous">
         <link
@@ -63,6 +65,26 @@
             href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css"
             crossorigin="anonymous"
             integrity="sha384-u5ziXfrFYP7EPEgV7hFwkxvQ5w8fNyNu7Ze4hVR8Xq6UxQaenv2QA5T8w8+IAjoA"
+            >
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="print"
+            href="https://cdn.jsdelivr.net/npm/gutenberg-css@0.4.4/dist/gutenberg.min.css"
+            integrity="sha256-NlUox1hAKNTxtGm8AkI/wkAQEjiJsrqvq44D533/rYs="
+            crossorigin="anonymous">
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="print"
+            href="https://cdn.jsdelivr.net/npm/gutenberg-css@0.4.4/dist/themes/modern.min.css"
+            integrity="sha256-guToKSUTgqM3YBRpViiSHcxJKm+V83A7Tp3WjAEh8V0="
+            crossorigin="anonymous">
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="print"
+            href="/print.css"
             >
         <script
             src="https://cdn.jsdelivr.net/npm/turbolinks@5.1.1/dist/turbolinks.js"
@@ -79,7 +101,8 @@
             defer
             crossorigin="anonymous"
             integrity="sha384-xfhRYqbW4Asj6UIfXB+Fp7GsmhF9uCf4R+oIGrp7YaBMAmlQWihnvGrW2WbdQRIS"></script>
-        <script src="/custom.js"></script>
+        <script
+            src="/custom.js"></script>
     </head>
     <body>
         {{- partial "navbar" . -}}
