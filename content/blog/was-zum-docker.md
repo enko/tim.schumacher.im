@@ -6,32 +6,32 @@ categories: [technik]
 type: post
 ---
 
-Ein guter Freund von mir berichtete das er seit einem Docker-Update einen PostgreSQL-Container nicht mehr starten konnte, ihn deshalb löschen muste und dann seine Daten weg wahren. Datenverlust ist nie lustig und aus diesem Grund will ich einige Erfahrungen dem gewillten Leser auf den Weg geben, die ich in den letzten anderthalb Jahren bei [meinem Arbeitgeber](http://www.flyacts.com) sammeln konnte.
+Ein guter Freund von mir berichtete, dass er seit einem Docker-Update einen PostgreSQL-Container nicht mehr starten konnte, ihn deshalb löschen muste und dann seine Daten verloren gingen. Datenverlust ist nie lustig und aus diesem Grund will ich dem geneigten Leser einige Erfahrungen auf den Weg geben, die ich in den letzten anderthalb Jahren bei [meinem Arbeitgeber](http://www.flyacts.com) sammeln konnte.
 
 ## Container sind zustandslos und unveränderbar
 
 ### Was heißt „zustandslos“?
 
-Es passt zwar nicht immer das Container zustandslos und unveränderbar sind, aber man sollte sie so betrachten, denn das wirft sofort die Frage auf, wenn der Container nicht den Zustand der Anwendung speichert, wo wird er dann gespeichert? [Das Handbuch](https://docs.docker.com/storage/) gibt hier zwei Möglichkeiten vor:
+Zwar verhällt es sich nicht immer so, dass Container zustandtslos und unveränderbar sind, aber man sollte sie dennoch so betrachten. Damit wird dann die Frage aufgeworfen, wenn der Zustand der Anwendung nicht im Container gespeichert wird, wo wird er dann gespeichert? [Das Handbuch](https://docs.docker.com/storage/) gibt hier zwei Möglichkeiten vor:
 
 * Volumes
 * Bind-mount
 
 #### docker volumes
 
-Volumes sind [laut Dokumentation](https://docs.docker.com/storage/volumes/) der präferierte Weg den Zustand eines Containers zu presistieren. Meine persönliche Erfahrung ist eine andere, da ich lieber bind mounts benutze, da ich mich dadurch garnicht erst um die Volume-Verwaltung kümmern muss und auch nicht die Volumes verwalten muss.
+Volumes sind [laut Dokumentation](https://docs.docker.com/storage/volumes/) der präferierte Weg den Zustand eines Containers zu persistieren. Meine persönliche Erfahrung ist eine andere. Ich benutze lieber bind mounts, da hier keine Verwaltung von nöten ist. Volumes kann ich auch wesentlich einfacher aus Versehen löschen, ein Ordner im Dateisystem erfordert mehr Aufwand.
 
 #### bind mounts
 
-Mittels eines „[bind mounts](https://unix.stackexchange.com/questions/198590/what-is-a-bind-mount/198591#198591)“ kann man auf einem Linux-System einen Ordner auf einen anderen Ordner zeigen lassen so das beide den selben Inhalt haben. So kann man einen Ordner auf dem Hostsystem und in dem Docker-Container den selben Ordner haben und so wird der Zustand des Containers außerhalb des Containers gespeichert und man kann ihn mit seinen regulären Werkzeugen sichern. Auch kann man das volume nicht ausversehen löschen.
+Mittels eines „[bind mounts](https://unix.stackexchange.com/questions/198590/what-is-a-bind-mount/198591#198591)“ kann ich auf einem Linux-System einen Ordner auf einen anderen Ordner zeigen lassen, so das beide über den selben Inhalt verfügen. So kann ein Ordner auf dem Hostsystem und in dem Docker-Container den selben Inhalt besitzen. Dadurch wird der Zustand des Containers außerhalb des Containers gespeichert und man kann ihn mit seinen regulären Werkzeugen sichern und beobachten.
 
 ### Was heißt „unveränderbar“?
 
-Nachdem nun der Zustand der Datenbank, gilt es den zweiten Teil zu betrachten. Man kann zwar zum Beispiel mittels `docker exec -it database /bin/sh` in den Container wechseln und dann beliebig den Container ändern, aber das ist nicht der Sinn und Zweck, denn wenn ich einen weiteren Container mit der selben Software starte um zum Beispiel ein Cluster für meine Anwendung zu starten, dann sind die Änderungen weg. Wenn man die Änderung am Container machen will, sollte man ein [eigenes docker image erstellen](https://docs.docker.com/engine/reference/builder/) und dieses image auch benutzten.
+Nachdem ich nun den Zustand der Datenbank außerhalb des Containers speichere, gilt es die zweite Eigenschaft „unveränderbar“ (engl immuteable) zu betrachten. Es ist zwar möglich einen Container zu bearbeiten, aber spätestens wenn man diesen Container löscht oder einen zweiten anlegt, wird sich das rächen, da die Änderung weg ist. Willst du wirklich eine Änderung an einem Container vornehmen, empfiehlt es sich, das dem Container zu grunde liegende Abbild zu modifizieren und in ein eigenes abzuspeichern.
 
 ## Aber ich kann doch nicht den Container löschen
 
-Was mich am meisten verdutzt an der Aussage des Freundes war, das das Löschen eines Containers so ein großer Akt ist. Auf Arbeit mache ich das auch auf Produktivsystemen ständig. Das liegt primär daran, das wir mit [docker-compose](https://docs.docker.com/compose/) arbeiten und selbst für jeden kleinsten Dienst. Das arbeiten mit compose hat den großen Vorteil, das wir die Konfiguration der Docker Container in einer [YAML-Konfigurationsdatei](https://de.wikipedia.org/wiki/YAML) abelegen können und dadurch das ganze in einem GIT-Repository abspeichern.
+Was mich am meisten verdutzt an der Aussage des Freundes war, das das Löschen eines Containers so ein großer Akt ist. Auf Arbeit mache ich das ständig. Das liegt primär daran, das wir mit [docker-compose](https://docs.docker.com/compose/) arbeiten und das selbst für jeden kleinsten Dienst. Das arbeiten mit compose hat den großen Vorteil, das wir die Konfiguration der Docker Container in einer [YAML-Konfigurationsdatei](https://de.wikipedia.org/wiki/YAML) gespeichert ist und diese Datei über GIT versioniert ist.
 
 ## Einen Dienst mit `docker-compose` einrichten
 
