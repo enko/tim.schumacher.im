@@ -1,5 +1,12 @@
 {{ define "main" -}}
 <main class="ui text container">
     {{- partial "full-posting" . -}}
+    <aside class="comments">
+        <script src="https://utteranc.es/client.js"
+            repo="enko/tim.schumacher.im"
+            branch="develop"
+            issue-term="pathname"
+            async></script>
+    </aside>
 </main>
 {{- end }}
