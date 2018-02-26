@@ -1,4 +1,4 @@
-(async () => {
+async function addHeaderClasses() {
     const selector = [
         'article .description h1',
         'article .description h2',
@@ -15,4 +15,8 @@
         node.classList.add('dividing');
         node.classList.add('header');
     }
-})();
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+  addHeaderClasses()
+});
