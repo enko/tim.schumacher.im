@@ -1,3 +1,7 @@
+body {
+    hyphens: auto;
+}
+
 header, footer {
     display: none;
 }
