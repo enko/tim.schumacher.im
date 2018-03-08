@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Boogaloo');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
 main.container {
     margin-top: calc(60px + 1rem);
     margin-bottom: 1rem;
@@ -47,4 +50,16 @@ article .description .highlight td:first-child {
 
 article .description .highlight td:last-child {
     padding-left: 1rem !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Boogaloo", Arial, Helvetica, sans-serif !important;
+}
+
+.ui.card > .content > .header:not(.ui) {
+    font-size: 2em;
+}
+
+body, .ui.button, header .ui.text.container {
+    font-family: 'Titillium Web', sans-serif;
 }
