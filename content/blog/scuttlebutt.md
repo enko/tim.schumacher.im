@@ -67,6 +67,44 @@ Protokolls sind die Bibliotheken
 [ssb-client-rs](https://github.com/ssbc/ssb-client-rs) für Rust.
 
 
-## Software
+## Soziales Netzwerk
 
-## Einordnung
+Ich habe bisher ja eher den technischen Bereich beschrieben, wieso
+soll das ganze jetzt ein soziales Netzwerk sein? Im Kern von
+Scuttlebutt kann man Nachrichten und Dateien austauschen. Es gibt
+jetzt Programme wie [Patchwork](https://github.com/ssbc/patchwork)
+oder auch [Patchbay](https://github.com/ssbc/patchbay) die bestimmte
+Nachrichten-Typen verarbeiten. Der aktuelle Konsenz sind folgende
+Typen:
+
+* `post`
+* `about`
+* `contact`
+* `vote`
+
+`post` ist ein Artikel der aus Markdown besteht in dem man auch andere
+Nachrichten oder Dateien verlinken kann. Eine `post`-Nachricht kann
+auch ein Kommentar auf einen anderen Artikel sein.
+
+Der `about` Nachrichten-Typ erlaubt es einen sich selbst zu
+beschreiben. Man kann hier einen Namen, ein Bild oder einen
+Beschreibungstext hinterlegen.
+
+Mit `contact` deutet ein Mensch an ob er einem anderen Konto folgt
+oder blockiert.
+
+Zum schluss gibt es noch `vote` mit dem man andere Nachrichten
+beurteilen kann. So kann man mit den Werten -1, 0 und +1
+abstimmen. Optional kann man noch einen Grund angeben wieso man so
+votiert hat.
+
+Ein Programm kann seinen eigenen Nachrichten-Typ implementieren,
+dieser wird auch durch das Protokoll an andere Benutzer
+weitergereicht, wenn das Programm des Benutzers damit nichts anfangen
+kann, wird die Nachricht nicht angezeigt.
+
+## Fazit
+
+Insgesamt finde ich scuttlebutt sehr interesant, gerade auf der
+Entwicklungsseite passiert sehr viel und ich bin sehr gespannt was die
+nächste Zeit so bringen wird.
