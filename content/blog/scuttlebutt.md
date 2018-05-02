@@ -45,14 +45,14 @@ Maschinen festlegt.
 Dieses basiert auf dem „[Gossip
 Protocol](https://en.wikipedia.org/wiki/Gossip_protocol)“. Eine
 vereinfachte Erläuterung geht so: In einem fiktiven Büro trifft Anja
-Felix in der Küche und tratscht, dass Tim sehr verwildert aussieht, weil
-er seit Tagen seinen Bart nicht gepflegt hat. Etwas später trifft
+Felix in der Küche und tratscht, dass Tim sehr verwildert aussieht,
+weil er seit Tagen seinen Bart nicht gepflegt hat. Etwas später trifft
 Felix Wilma und Isa in der Küche und tratscht weiter, dass Tim seinen
 Bart nicht pflegt. So haben Wilma und Isa die Information erhalten,
 obwohl sie nicht direkt mit Anja geredet haben. Bei „Scuttlebutt“
 läuft das ähnlich, nur wird mit
-„[Kryptographie](https://de.wikipedia.org/wiki/Kryptographie)“ sichergestellt,
-dass die Informationen von Anja auch wirklich von ihr
+„[Kryptographie](https://de.wikipedia.org/wiki/Kryptographie)“
+sichergestellt, dass die Informationen von Anja auch wirklich von ihr
 stammen. Da die Rechner der meisten Personen im Internet nicht von
 anderen Rechnern erreichbar sind, können die Rechner nicht direkt
 miteinander kommunizieren, sondern brauchen einen Mittelsmann. Im
@@ -95,10 +95,12 @@ Beschreibungstext hinterlegen.
 Mit `contact` deutet ein Mensch an, ob er einem anderen Konto folgt
 oder blockiert.
 
-Zum Schluss gibt es noch `vote`. Mit diesem Nachrichten-Typ kann man andere Nachrichten
-beurteilen, etwa mit den Werten -1, 0 und +1
-abstimmen. Optional kann man noch einen Grund angeben, wieso man so
-votiert hat.
+Zum Schluss gibt es noch `vote`. Mit diesem Nachrichten-Typ kann man
+andere Nachrichten beurteilen. Der Wert +1 ist um Zustimmung zu einem
+zu bekunden. Mit dem Wert 0 kann man ein vorher gemachte +1 Abstimmung
+rückgängig machen. Der Wert -1 wird momentan nicht genutzt, es ist
+geplant damit Nachrichten zu markieren, z.B. das es sich um Spam oder
+unsachgemäße Kommunikation handelt.
 
 Ein Programm kann seinen eigenen Nachrichten-Typ implementieren,
 dieser wird auch durch das Protokoll an andere Benutzer
@@ -107,8 +109,10 @@ kann, dann wird die Nachricht nicht angezeigt.
 
 ## Fazit
 
-Insgesamt finde ich "Scuttlebutt" als Medium zur medialen Vernetzung sehr interessant, weil die Grundidee dem realweltlichen Sozialverhalten anlehnt. Auch auf der
-technischen Entwicklungsebene beobachte ich Veränderungen und bin sehr gespannt, was die
-nächste Zeit so bringen wird.
+Insgesamt finde ich "Scuttlebutt" als Medium zur medialen Vernetzung
+sehr interessant, weil die Grundidee dem realweltlichen
+Sozialverhalten anlehnt. Auch auf der technischen Entwicklungsebene
+beobachte ich Veränderungen und bin sehr gespannt, was die nächste
+Zeit so bringen wird.
 
 Viel Spaß mit „Scuttlebut“!
