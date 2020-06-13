@@ -20,7 +20,7 @@ Die Zubereitung dann so:
  * Mittels Handmixer mit Knethaken alles vermengen.
  * Eine seperate Schüssel mit Mehl bereitstellen.
  * Backblech mit Backpapier bereitstellen.
- * Den Backofen auf 180°C vorwärmen,
+ * Den Backofen auf 180°C vorwärmen.
  * Die Hände leicht anfeuchten.
  * Ein Stück Teig herrausnehmen und zu einer Kugel formen.
  * Kugel im Mehl rollen und aufs Backblech legen.
