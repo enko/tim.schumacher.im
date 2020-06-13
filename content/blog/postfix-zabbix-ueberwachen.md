@@ -6,9 +6,9 @@ categories: [technik]
 type: post
 ---
 
-Hinweis: Dies ist eine Übersetzung ins deutsche von [Zabbix: Postfix statistical graphs using passive checks](http://lifeisabug.com/postfix-statistical-graphs-zabbix-using-passive-checks/). Zusätzlich habe ich das Zabbix-Template und das Skript hier noch gespiegelt.
+Hinweis: Dies ist eine Übersetzung ins Deutsche von [Zabbix: Postfix statistical graphs using passive checks](http://lifeisabug.com/postfix-statistical-graphs-zabbix-using-passive-checks/). Zusätzlich habe ich das Zabbix-Template und das Skript hier noch gespiegelt.
 
-Diese Anleitung hilft bei der Erstellung von passiven Checks. Es gibt dazu ein Skript welches mit [logtail](http://www.fourmilab.ch/webtools/logtail/) und [pflogsumm](http://jimsun.linxnet.com/postfix_contrib.html) die Postfix Log-Dateien auswertet und in eine Statistik-Datei schreibt. Zum Schluss wird ein `UserParameter` erstellt, welcher die Daten aus der Statistik-Datei an Zabbix weitergibt.
+Diese Anleitung hilft bei der Erstellung von passiven Checks. Es gibt dazu ein Skript, welches mit [logtail](http://www.fourmilab.ch/webtools/logtail/) und [pflogsumm](http://jimsun.linxnet.com/postfix_contrib.html) die Postfix Log-Dateien auswertet und in eine Statistik-Datei schreibt. Zum Schluss wird ein `UserParameter` erstellt, welcher die Daten aus der Statistik-Datei an Zabbix weitergibt.
 
 ### Vorraussetzungen installieren
 
@@ -19,7 +19,7 @@ $ apt-get install pflogsumm logtail
 ```
 ### Skript einrichten
 
-Das [Skript](/media/blog/postfix-zabbix-ueberwachen/postfix-zabbix-stats.bash) muss als `postfix-zabbix-stats.bash` in `/usr/local/bin` gespeichert werden und als ausführbar (`+x`) makiert werden.
+Das [Skript](/media/blog/postfix-zabbix-ueberwachen/postfix-zabbix-stats.bash) muss als `postfix-zabbix-stats.bash` in `/usr/local/bin` gespeichert werden und als ausführbar (`+x`) markiert werden.
 
 Danach legt man einen Cronjob für das Skript an, damit es die Statistik-Datei schreiben kann:
 
@@ -38,8 +38,8 @@ UserParameter=postfix.pfmailq,mailq | grep -v "Mail queue is empty" | grep -c '^
 UserParameter=postfix[*],/usr/local/bin/postfix-zabbix-stats.bash $1
 ```
 
-Agent neustarten und in diesem Kapitel fertig.
+Anschließend kannst du den Agenten neustarten.
 
 ### Zabbix Template importieren
 
-Nun muss man das [Template](/media/blog/postfix-zabbix-ueberwachen/smtp_and_postfix_passive_checks_zabbix_template.xml) importieren und dem Host auf dem Postfix läuft zuweisen und schon ist man fertig und bekommt nette Postfix-Statistiken.
+Nun muss man das [Template](/media/blog/postfix-zabbix-ueberwachen/smtp_and_postfix_passive_checks_zabbix_template.xml) importieren und dem Host, auf dem Postfix läuft, zuweisen und schon ist man fertig und bekommt nette Postfix-Statistiken.
