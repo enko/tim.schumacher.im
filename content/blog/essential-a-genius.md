@@ -6,6 +6,6 @@ categories: [musik]
 type: post
 ---
 
-Mals was locker flockigen Jazz für zwischen durch.
+Mal was locker flockigen Jazz für zwischendurch.
 
 <iframe width="100%" height="400" src="https://www.mixcloud.com/widget/iframe/?feed=%2FBoycutter%2Fessentially-a-genius-vol1-miles-davis%2F" frameborder="0" ></iframe>
