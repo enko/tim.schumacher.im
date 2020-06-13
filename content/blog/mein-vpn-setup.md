@@ -6,21 +6,21 @@ categories: [technik]
 type: post
 ---
 
-Ziel dieses Artikel ist es zu zeigen wie mein [OpenVPN](https://openvpn.net/)-Setup
+Ziel dieses Artikel ist es, zu zeigen wie mein [OpenVPN](https://openvpn.net/)-Setup
 funktioniert, wie ich meine Clients konfiguriere und was das für
 Vorteile bringt.
 
-Fangen wir mal mit dem warum an. Mein initiales anliegen war in das
-virtuele Netzwerk meines [libvirt](https://libvirt.org/)/[KVM](http://www.linux-kvm.org/page/Main_Page)-Hostes einzusteigen,
-damit ich die virtuellen Maschienen besser verwalten kann. Ich habe
+Fangen wir mal mit dem 'Warum' an. Mein initiales Anliegen war in das
+virtuelle Netzwerk meines [libvirt](https://libvirt.org/)/[KVM](http://www.linux-kvm.org/page/Main_Page)-Hostes einzusteigen,
+damit ich die virtuellen Maschinen besser verwalten kann. Ich habe
 zuerst an [IPSec](https://de.wikipedia.org/wiki/IPsec) versucht, bin da aber an der harschen
 Internet-Realität gescheitert. So hat mein Internet-Anbieter Kabel
 Deutschland fragmentierte UDP-Pakete klammheimlich verworfen. Hat mit
-mich einige Zeit gekostet das raus zu finden, aber dank
+mich einige Zeit gekostet, das rauszufinden. Aber dank
 [Netalyzr](http://netalyzr.icsi.berkeley.edu/) findet man solche
 Sachen dann doch relativ schnell. An dieser Stelle muss ich mal eine
-Lanze für Netalyzr brechen, wenn ihr in ein neues Netz kommt, führt
-den Test einmal aus, um euch der Limitationen des Netzes bewust zu
+Lanze für Netalyzr brechen. Wenn ihr in ein neues Netz kommt, führt
+den Test einmal aus, um euch der Limitationen des Netzes bewusst zu
 werden. Dann habe ich mich an OpenVPN versucht und alles funktionierte
 ohne mit der Wimper zu zucken.
 
@@ -31,24 +31,24 @@ meiner Infrastruktur.
 
 Ich habe einen
 [Server](https://www.hetzner.de/hosting/produkte_rootserver/ex40) bei
-Hetzner gemieted auf dem ich mehrere virtuelle Maschienen mit
-unterschiedichen [Diensten](/dienste). Da ich nur eine IPv4-Addresse
-habe und aus kostengründen nichts ändern will, habe ich ein privates
+Hetzner gemietet, auf dem ich mehrere virtuelle Maschinen mit
+unterschiedichen [Diensten](/dienste) betreibr. Da ich nur eine IPv4-Addresse
+habe und aus Kostengründen nichts ändern will, habe ich ein privates
 LAN mit NAT für die ganzen virtuellen Rechner eingerichtet. Das
 IPv4-Lan hat den Prefix `192.168.122.0/24`, dieser Prefix sollte
 natürlich auch über das VPN erreichbar sein. Daneben habe ich von
 Hetzner einen nativen IPv6 Zugang erhalten und habe den Prefix
-`2a01:4f8:200:2265::/64`. Was im Verlauf des einrichtens gelernt habe
-ist, das wenn man verschiedene Unterinfrastrukturen hat, diese auch
+`2a01:4f8:200:2265::/64`. Was ich im Verlauf des Einrichtens gelernt habe
+ist: Wenn man verschiedene Unterinfrastrukturen hat, sollte man diese auch
 mit eigenen Prefixen beglücken. So habe ich den /64 in mehrere
-/112-Netze aufgeteilt. Die Virtuellen Server haben den Prefix
+/112-Netze aufgeteilt. Die virtuellen Server haben den Prefix
 `2a01:4f8:200:2265:3::/112` und das VPN-Netz hat
 `2a01:4f8:200:2265:4::/112`. Was ich in diesem Kontext auch gelernt
 habe, das `2000::/3` der komplette öffentlich routbare Teil von IPv6
-ist. Zum Schluss sei noch gesagt das ich einen
+ist. Zum Schluss sei noch gesagt, dass ich einen
 [LDAP](https://de.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)-Verzeichnis
-betreibe in dem ich Benutzer verwalte, das sollte auch an das OpenVPN
-angebunden werden. Soviel zur Infrastruktur, jetzt zur Konfiguration.
+betreibe, in welchem ich Benutzer verwalte. Das sollte auch an das OpenVPN
+angebunden werden. Soviel zur Infrastruktur, jetzt zur Konfiguration:
 
 ### Server Konfiguration
 
@@ -85,7 +85,7 @@ plugin /usr/lib/openvpn/openvpn-auth-ldap.so /etc/openvpn/auth-ldap.conf
 ```
 
 
-Die LDAP konfiguration sieht so aus:
+Die LDAP-Konfiguration sieht so aus:
 
 ```xml
 <LDAP>
@@ -110,13 +110,13 @@ Die LDAP konfiguration sieht so aus:
 
 ```
 
-Hier ist anzufügen das die Limitierung auf die Gruppe `vpnusers`
-irgendwie nie geklapt hat. Für Sachdienliche Hinweise wäre ich sehr
+Hier ist anzufügen, dass die Limitierung auf die Gruppe `vpnusers`
+irgendwie nie geklappt hat. Für sachdienliche Hinweise wäre ich sehr
 dankbar.
 
 Als nächstes muss auf dem Server noch die Firewall eingerichtet
 werden. Ich benutze das Programm
-„[Ferm](http://ferm.foo-projects.org/)” um meine [IPTables](http://www.netfilter.org/projects/iptables/)-Regeln zu
+„[Ferm](http://ferm.foo-projects.org/)”, um meine [IPTables](http://www.netfilter.org/projects/iptables/)-Regeln zu
 verwalten. Entsprechend sieht mein Script so aus:
 
 ```shell
@@ -198,13 +198,11 @@ domain ip6 {
 
 ```
 
-Es empfiehlt sich natürlich etwas mit der Materie auseinander zu
-setzen damit man versteht was ich hier schreibe. Vieles was in diesen
-Konfigurations-Dateien steht hat sich über die Jahre so entwickelt.
+Es empfiehlt sich natürlich, sich etwas mit der Materie auseinanderzusetzen, damit man versteht, was ich hier schreibe. Vieles, was in diesen Konfigurations-Dateien steht, hat sich über die Jahre so entwickelt.
 
 ### Client Konfiguration (Linux)
 
-Unter Linux ist bis auf einen Punkt eigentlich alles sehr entspannt. Das Problem ist, das der DNS-Server den ich bereitstelle nicht übernommen wird. Dafür gibt es eine Lösung und jetzt erstmal die Config:
+Unter Linux ist bis auf einen Punkt eigentlich alles sehr entspannt. Das Problem ist, dass der DNS-Server, den ich bereitstelle, nicht übernommen wird. Dafür gibt es eine Lösung und jetzt erstmal die Config:
 
 ```shell
 client
@@ -230,13 +228,13 @@ up /home/hana/openvpn/datenknoten/update-dns
 down /home/hana/openvpn/datenknoten/update-dns
 ```
 
-2 Anmerkungen: Zum einen sei hier der eintrag `auth-user-pass`
+2 Anmerkungen: Zum einen sei hier der Eintrag `auth-user-pass`
 hervorzuheben, der den Client auffordert sich Zugangsdaten vom
-Benutzer zu erfragen. Zum anderen die letzten 3 Zeile. Diese sorgen
-nämlich mittels einem kleinen Skript das
+Benutzer zu erfragen. Zum anderen die letzten 3 Zeilen. Diese sorgen
+nämlich mittels einem kleinen Skript, welches
 [openresolv](http://roy.marples.name/projects/openresolv/index)
-aufruft, den mitgelieferte DNS-Server in der Datei `/etc/resolv.conf`
-einträgt. Hier das Skript:
+aufruft, dafür, dass die mitgelieferten DNS-Server in die Datei `/etc/resolv.conf`
+eingetragen werden. Hier das Skript:
 
 ```shell
 #!/bin/bash
@@ -309,10 +307,10 @@ android](http://ics-openvpn.blinkt.de/), welches es auch im [F-Droid
 Store](https://f-droid.org/repository/browse/?fdfilter=openvpn&fdid=de.blinkt.openvpn)
 gibt.
 
-Das Einrichten ist Einfach und es gibt nichts zu beachten. Als ich das
+Das Einrichten ist einfach und es gibt nichts zu beachten. Als ich das
 VPN eingerichtet habe, habe ich einen Bug in dem von mir benutzen
 XMPP-Client [Conversations](http://conversations.im/) gefunden, weil
-dieser, bzw die darunterliegende DNS-Bibliothek die DNS-Server nicht
+dieser, bzw. die darunterliegende DNS-Bibliothek die DNS-Server nicht
 richtig bestimmen
 [konnte](https://github.com/rtreffer/minidns/issues/12) (Ist
 inzwischen behoben).
