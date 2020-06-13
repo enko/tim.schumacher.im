@@ -3,9 +3,9 @@ title: "Über mich"
 date: 2017-09-24
 ---
 
-Ich bin ein alter Sack aus dem Rheinland, den es für das Studium nach [Jena (Thüringen)](http://www.openstreetmap.org/node/240090160) verschlagen hat und wegen der Liebe gelieben ist. Ich gehe gerne wandern, hier und da [programmiere](https://github.com/enko) ich auch gerne mal etwas, höre [abstruse Musik](https://www.youtube.com/user/0xAFFE/videos?shelf_id=0&sort=dd&view=15) und auch sonst habe ich viel Spass am Leben.
+Ich bin ein ornitologisch begeisterter Softwarewentickler und Systemarchitekt aus dem Rheinland, den es für das Studium nach [Jena (Thüringen)](http://www.openstreetmap.org/node/240090160) verschlagen hat und gemeinsam mit der großen Liebe wieder in die Heimat zurückgegkehrt ist. Ich gehe gerne wandern, [programmiere](https://github.com/enko) viel in meiner Freizeit, unterstütze Freunde und meine Netzwerpartner bei interessanten Projekten, höre [abstruse Musik](https://www.youtube.com/user/0xAFFE/videos?shelf_id=0&sort=dd&view=15) und auch sonst habe ich viel Spaß am Leben :)
 
-Wenn du einen Rechtschreibfehler findest, kannst du gerne einen [Pull-Request](https://github.com/enko/tim.schumacher.im) stellen.
+Wenn du in meinem Blog einen Rechtschreibfehler findest, kannst du gerne einen [Pull-Request](https://github.com/enko/tim.schumacher.im) stellen.
 
 ## Kontakt
 
