@@ -20,7 +20,7 @@ die auf verschiedene Arten miteinander kommunizieren. Es ist wichtig
 anzumerken, dass in einem sozialen Netzwerk die Menschen im Fokus stehen und
 weniger die Kommunikationsweise selbst.
 
-Dezentral heißt hier, dass es keine zentrale Autorität gibt, die bestimmt
+Dezentral heißt hier, dass es keine zentrale Autorität gibt, die bestimmt,
 welche Inhalte für das Netzwerk relevant sind.
 
 Autonom bedeutet, dass die Software auch ohne Internet funktioniert, da
@@ -33,7 +33,7 @@ Der Begriff „Scuttlebutt“ kommt aus der englischen Seemannssprache.
 Ein „Scuttlebutt“ ist eine Tonne mit Trinkwasser, an der sich Seeleute
 bedient haben. Da diese Tonne ein Treffpunkt für die Seeleute war,
 wurden dort auch Informationen ausgetauscht. Das soziale Netzwerk
-„Scuttlebutt“ ist im übertragenen Sinn die Wassertonne an welcher sich die
+„Scuttlebutt“ ist im übertragenen Sinn die Wassertonne, an welcher sich die
 Menschen treffen und ihre Neuigkeiten austauschen.
 
 ## Protokoll
@@ -44,16 +44,15 @@ Maschinen festlegt.
 
 Dieses basiert auf dem „[Gossip
 Protocol](https://en.wikipedia.org/wiki/Gossip_protocol)“. Eine
-vereinfachte Erläuterung geht so: In einem fiktiven Büro trifft Anja
-Felix in der Küche und tratscht, dass Tim sehr verwildert aussieht,
+vereinfachte Erläuterung geht so: In einem fiktiven Büro trifft Anja einen ihrer Freunde Felix in der Küche und tratscht darüber, dass Tim sehr verwildert aussieht,
 weil er seit Tagen seinen Bart nicht gepflegt hat. Etwas später trifft
-Felix Wilma und Isa in der Küche und tratscht weiter, dass Tim seinen
+Felix seine Freundinnen Wilma und Isa in der Küche und tratscht weiter, dass Tim seinen
 Bart nicht pflegt. So haben Wilma und Isa die Information erhalten,
 obwohl sie nicht direkt mit Anja geredet haben. Bei „Scuttlebutt“
 läuft das ähnlich, nur wird mit
 „[Kryptographie](https://de.wikipedia.org/wiki/Kryptographie)“
 sichergestellt, dass die Informationen von Anja auch wirklich von ihr
-stammen. Da die Rechner der meisten Personen im Internet nicht von
+stammen und vollständig sind. Da die Rechner der meisten Personen im Internet nicht von
 anderen Rechnern erreichbar sind, können die Rechner nicht direkt
 miteinander kommunizieren, sondern brauchen einen Mittelsmann. Im
 „Scuttlebutt“-Universum nennt man diesen gemeinsamen Treffpunkt den
