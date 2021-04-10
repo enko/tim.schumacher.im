@@ -9,24 +9,15 @@ Wenn du in meinem Blog einen Rechtschreibfehler findest, kannst du gerne einen [
 
 ## Kontakt
 
-**XMPP**: [tim@boese-ban.de](xmpp:tim@boese-ban.de)
+**Matrx**: [@tim:schumacher.im](https://matrix.to/#/@tim:schumacher.im)
 
-**E-Mail**: <tim@datenknoten.me> ([Verschlüsselt](https://encrypt.to/tim@datenknoten.me))
+**E-Mail**: <tim@datenknoten.me> ([Verschlüsselt](https://encrypt.to/0x59AEBF8884CA25D9))
 
 ## Social Media
 
 Im Cyberspace bin ich hier:
 
 <div class="ui relaxed divided list">
-  <div class="item">
-    <i class="large lock middle aligned icon"></i>
-    <div class="content">
-      <div class="header">Keybase</div>
-      <div class="description">
-        <a href="https://keybase.io/0xaffe">keybase.io/0xaffe</a>
-      </div>
-    </div>
-  </div>
   <div class="item">
     <i class="large twitter middle aligned icon"></i>
     <div class="content">
@@ -51,15 +42,6 @@ Im Cyberspace bin ich hier:
       <div class="header">Amazon</div>
       <div class="description">
         <a href="http://www.amazon.de/registry/wishlist/2ODWLR7VW50OJ">Amazon</a>
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <i class="large instagram middle aligned icon"></i>
-    <div class="content">
-      <div class="header">Instagram</div>
-      <div class="description">
-        <a href="http://instagram.com/0xaffe">0xAFFE</a>
       </div>
     </div>
   </div>
