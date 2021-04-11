@@ -1,8 +1,7 @@
 image: klakegg/hugo:0.55.6-ext-ubuntu
 
 Build Website:
-  entrypoint: /bin/bash
   only:
     - 'develop'
   script:
-    - /bin/hugo
+    - /bin/hugo --help
