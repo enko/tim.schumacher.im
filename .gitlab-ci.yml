@@ -1,7 +1,10 @@
 image: registry.datenknoten.me/datenknoten/gitlab-node-docker-image
 
-Build Website:
+pages:
   only:
     - 'develop'
   script:
     - hugo
+  artifacts:
+    paths:
+      - public
