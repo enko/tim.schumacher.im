@@ -1,8 +1,7 @@
+image: registry.datenknoten.me/datenknoten/gitlab-node-docker-image
+
 Build Website:
-  image:
-    name: klakegg/hugo:0.55.6-ext-ubuntu
-    entrypoint: [ '/bin/bash' ]
   only:
     - 'develop'
   script:
-    - /bin/hugo --help
+    - hugo
