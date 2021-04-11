@@ -1,6 +1,7 @@
-image: klakegg/hugo:0.55.6-ext-ubuntu
-
 Build Website:
+  image:
+    name: klakegg/hugo:0.55.6-ext-ubuntu
+    entrypoint: [ '/bin/bash' ]
   only:
     - 'develop'
   script:
