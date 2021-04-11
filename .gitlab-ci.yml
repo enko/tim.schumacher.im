@@ -4,4 +4,4 @@ Build Website:
   only:
     - 'develop'
   script:
-    - hugo
+    - /bin/hugo
