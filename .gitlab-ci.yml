@@ -1,0 +1,7 @@
+image: klakegg/hugo:0.55.6-ubuntu
+
+Build Website:
+  only:
+    - 'develop'
+  script:
+    - hugo
