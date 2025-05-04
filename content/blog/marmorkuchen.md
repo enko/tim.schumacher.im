@@ -11,7 +11,7 @@ Mein Rezept für einen kleinen, aber feinen Mamorkuchen:
  * 280g Mehl (Eigentlich Weizenmehl, aber Dinkel geht auch gut und ist meine Wahl)
  * 1 Päckchen Backpulver
  * 2 Eier
- * 250ml Milch
+ * 260g Milch
  * 80g Butter
  * 140g Zucker
 
